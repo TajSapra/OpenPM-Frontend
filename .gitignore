@@ -4,10 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-/logos
 # testing
 /coverage
-
 # production
 /build
 
@@ -21,3 +19,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+# assets
+/logos
+# tokens
+tokens.js
