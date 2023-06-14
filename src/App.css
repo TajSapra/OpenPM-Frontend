@@ -54,3 +54,10 @@ html::-webkit-scrollbar {
 .image2{
   height: 72%; width: 35%; mix-blend-mode: color-burn;
 }
+#login_form input{
+  background-color: rgb(93,172,189);
+  color: rgb(36,82,122);
+}
+#login_form{
+  width: 40%;
+}
