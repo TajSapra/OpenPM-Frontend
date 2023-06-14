@@ -1,38 +1,56 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.signup-links:hover{
+            border: rgb(36,82,122) 1px solid;
+            color: rgb(36, 82, 122);
+            background-color: rgb(93,172,189);
+        }
+.login_box{
+  display: flex; justify-content: space-evenly; width: 17%; position: absolute; top: 3%; right: 4%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App{
+  overflow:hidden;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body, div, html{
+  -ms-overflow-style: none;
+            scrollbar-width: none; 
+}
+div::-webkit-scrollbar {
+  display: none;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+.upperhalf, .lowerhalf{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 50vh;
+  width: 100vw;
 }
-
-.App-link {
-  color: #61dafb;
+.upperhalf{
+  margin-top: 4%;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.lowerhalf{
+  margin-top: 5%;
+}
+.compartments{
+  border: 1px solid black;
+  width: 32.5%;
+  height: 100%;
+  display:flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+.compartments div{
+  width: 60%;
+  font-size: 1.75rem;
+}
+.image2{
+  height: 72%; width: 35%; mix-blend-mode: color-burn;
 }
