@@ -30,6 +30,7 @@ export default function Login(props) {
             }
             else{
                 setCookie('secret', '', { expires: new Date(0) });
+                setCookie('email', '', { expires: new Date(0) });
                 props.setuser(undefined)
             }
         })

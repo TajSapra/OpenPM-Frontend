@@ -1,6 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { getCookie, setCookie } from '../Unit Components/CookieUtils';
+import { useNavigate } from 'react-router-dom';
 export default function Header(props) {
-  console.log(props.user=={}, props.user)
+  const navigate=useNavigate()
+  const handleLogout=async function(){
+        props.setuser(undefined)
+        setCookie('email', '', {})
+        setCookie('secret', '', { expires: new Date(0) });
+        setCookie('email', '', { expires: new Date(0) });
+        navigate('/') 
+  }
   return (
     <div style={{height:'13.5vh'}}>
     <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor:'rgb(36,82,122)', color:'rgb(93,172,189)', borderBottom:'1px solid rgb(93,172,189)'}}>
@@ -22,20 +31,21 @@ export default function Header(props) {
             <li className="nav-item">
               <a className="nav-link" href="/about" style={{backgroundColor:'rgb(36,82,122)', color:'rgb(93,172,189)'}}>About</a>
             </li>      
-            {props.user==undefined &&(<><li className="nav-item">
+            {Object.keys(props.user).length==0&&(<><li className="nav-item">
               <a className="nav-link" href="/login" style={{backgroundColor:'rgb(36,82,122)', color:'rgb(93,172,189)'}}>Login</a>
             </li>      
             <li className="nav-item">
               <a className="nav-link" href="/signup" style={{backgroundColor:'rgb(36,82,122)', color:'rgb(93,172,189)'}}>Signup</a>
             </li></>)}      
-            {props.user!=undefined &&(<><li className="nav-item">
+            {props.user!=undefined &&Object.keys(props.user).length>0&&(<><li className="nav-item">
               <a className="nav-link" href="/app/profile" style={{backgroundColor:'rgb(36,82,122)', color:'rgb(93,172,189)'}}>Profile</a>
             </li> </>)}      
           </ul>
-          <div>
-          
-
-          </div>
+            {props.user!=undefined&&Object.keys(props.user).length>0&&(<div style={{position:'relative', right:'5%', color:'rgb(93,172,189)'}}>
+              <div style={{cursor:'pointer'}} onClick={handleLogout}>
+              <i className="fa-solid fa-right-from-bracket fa-xl" style={{color:'#5dacbd'}}></i>
+              </div>
+          </div>)}
           </div>
         </div>
       </nav>
