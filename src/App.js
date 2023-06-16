@@ -13,8 +13,10 @@ import Login from './Components/Pages/Login'
 import About from './Components/Pages/About';
 import Signup from './Components/Pages/Signup'
 import Profile from './Components/Unit Components/Profile';
+import Logout from './Components/Pages/Logout';
 function App() {
   const [user, SetUser]=useState({})
+  if(user==undefined)SetUser({})
   return (
     <>
       <Header title="OpenPM" user={user} setuser={SetUser}/>
