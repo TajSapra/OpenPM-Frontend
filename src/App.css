@@ -61,3 +61,42 @@ html::-webkit-scrollbar {
 #login_form{
   width: 40%;
 }
+.profile1, .profile2{
+  border: 1px solid rgb(93,172,189);
+  position: relative;
+  top: 2%;
+  border-radius: 25px;
+}
+.profile1{
+  width: 27.5%;
+  height: 89%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.profile2{
+  width: 65%;
+  height: 89%;
+}
+.details{
+  border: 1px solid rgb(93,172,189);
+}
+.photo{
+  height: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.details{
+  text-align: center;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 1.75rem;
+}
+.photoborder{
+  height: 100%;
+  width: 55%;
+  border-radius: 50%;
+}
