@@ -18,6 +18,7 @@ import { getCookie, setCookie } from '../src/Components/Unit Components/CookieUt
 
 function App() {
   const [user, SetUser]=useState({})
+  const [imageSrc, setImageSrc] = useState('');
   const navigate=useNavigate()
   if(user==undefined)SetUser({})
   useEffect(() => {
@@ -31,9 +32,17 @@ function App() {
         body: JSON.stringify({ emailid: emailCookie, secret: secretCookie }),
       });
       const responsedata = await verified.json();
-
       if (responsedata['success'] == 'Updated Successfully') {
-        SetUser(responsedata.user)
+        await SetUser(responsedata.user)
+        const response = await fetch('http://localhost:8000/app/get_pic', {
+          method:'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({email:emailCookie})
+        });
+        const blob = await response.blob();
+        const imageUrl = URL.createObjectURL(blob);
+        console.log(imageUrl)
+        setImageSrc(imageUrl);
       }
       else{
         SetUser({});
@@ -50,6 +59,8 @@ function App() {
 
     checkLoggedIn();
   }, [SetUser, navigate]);  
+
+
   return (
     <>
       <Header title="OpenPM" user={user} setuser={SetUser}/>
@@ -59,7 +70,7 @@ function App() {
           <Route path='/about' element={<About user={user} setuser={SetUser}/>}></Route>
           <Route path="/login" element={<Login user={user} setuser={SetUser} path="/login"/>}></Route>
           <Route path="/signup" element={<Signup user={user} setuser={SetUser} path="/signup"/>}></Route>
-          <Route path='/app/profile' element={<Profile user={user} setuser={SetUser}/>}></Route>
+          <Route path='/app/profile' element={<Profile user={user} setuser={SetUser} imageSrc={imageSrc}/>}></Route>
         </Routes>
       </div>
     </>
