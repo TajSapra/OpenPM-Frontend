@@ -77,6 +77,9 @@ html::-webkit-scrollbar {
 .profile2{
   width: 65%;
   height: 89%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .details{
   border: 1px solid rgb(93,172,189);
@@ -99,4 +102,74 @@ html::-webkit-scrollbar {
   height: 100%;
   width: 55%;
   border-radius: 50%;
+}
+
+.projects{
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(93,172,189);  
+}
+.tasks{
+  height: 30%;
+  border-top: 1px solid rgb(93,172,189);  
+}
+.data div{
+  border: 1px solid rgb(93,172,189);  
+}
+.data{
+  height: 40%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.data div{
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+a{
+  text-decoration: none;
+  color: rgb(93,172,189);
+}
+a:hover{
+  text-decoration: none;
+  color: rgb(93,172,189);
+}
+.see_all:hover{
+  text-decoration: underline;
+}
+.list_all_projects{
+  display: flex;
+  height: 217%;
+  width: 70%;
+}
+.cards_list{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  flex-wrap: wrap;
+  height: 13.5%;
+  position: relative;
+  border: 1px solid;
+  left: 3%;
+}
+.card{
+  width: 40%;
+  margin-top: 2%;
+  margin-left: 3%;
+}
+.create_new_project{
+  position: relative;
+  left: 3%;
+  border: 1px solid;
+  height:29.3%;
+  width: 26%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
 }

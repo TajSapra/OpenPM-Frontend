@@ -19,12 +19,11 @@ export default function Login(props) {
         var final_response_data;
         const responsedatapromise=response.json()
         responsedatapromise.then((responsedata)=>{
+            console.log(responsedata)
             final_response_data=responsedata
-            console.log(final_response_data)
             if(final_response_data['success']=="Updated Successfully"&&final_response_data['user']['user_secret']!=undefined&&final_response_data['user']['user_secret']!=null){
                 setCookie('secret', final_response_data['user']['user_secret'], { expires: 30 });
                 props.setuser(final_response_data.user)
-                console.log(props.user, final_response_data.user)
                 setCookie('email', email, { expires: 30 })
                 navigate('/app/profile');
             }
