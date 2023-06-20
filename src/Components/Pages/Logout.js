@@ -6,7 +6,6 @@ export default function Logout(props) {
     const [imageLoaded, setImageLoaded] = useState(false);
     const navigate=useNavigate();
         setImageLoaded(true);
-        console.log("Here")
         props.setuser(undefined)
         setCookie('email', '', {})
         setCookie('secret', '', { expires: new Date(0) });
