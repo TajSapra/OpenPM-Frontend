@@ -4,10 +4,9 @@ import { useNavigate } from 'react-router-dom';
 export default function Header(props) {
   const navigate=useNavigate()
   const handleLogout=async function(){
-        props.setuser(undefined)
-        setCookie('email', '', {})
         setCookie('secret', '', { expires: new Date(0) });
         setCookie('email', '', { expires: new Date(0) });
+        props.setuser(undefined)
         navigate('/') 
   }
   return (
