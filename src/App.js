@@ -27,35 +27,40 @@ function App() {
     const checkLoggedIn = async () => {
       const secretCookie = getCookie('secret');
       const emailCookie = getCookie('email');
-
-      const verified = await fetch('http://localhost:8000/app/get_user', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ emailid: emailCookie, secret: secretCookie }),
-      });
-      const responsedata = await verified.json();
-      if (responsedata['success'] == 'Updated Successfully') {
-        await SetUser(responsedata.user)
-        const response = await fetch('http://localhost:8000/app/get_pic', {
-          method:'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({email:emailCookie})
-        });
-        const blob = await response.blob();
-        const imageUrl = URL.createObjectURL(blob);
-        setImageSrc(imageUrl);
-      }
+      if(secretCookie==undefined){
+        console.log("Hello")
+      } 
       else{
-        SetUser({});
-        setCookie('secret', '', { expires: new Date(0) });
-        setCookie('email', '', { expires: new Date(0) });
-        if(window.location.href=='http://localhost:3000/login'||window.location.href=='http://localhost:3000/signup'){
-
+        const verified = await fetch('http://localhost:8000/app/get_user', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ emailid: emailCookie, secret: secretCookie }),
+        });
+        const responsedata = await verified.json();
+        if (responsedata['success'] == 'Updated Successfully') {
+          await SetUser(responsedata.user)
+          const response = await fetch('http://localhost:8000/app/get_pic', {
+            method:'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({email:emailCookie})
+          });
+          const blob = await response.blob();
+          const imageUrl = URL.createObjectURL(blob);
+          setImageSrc(imageUrl);
         }
         else{
-          navigate('/');
+          SetUser({});
+          setCookie('secret', '', { expires: new Date(0) });
+          setCookie('email', '', { expires: new Date(0) });
+          if(window.location.href=='http://localhost:3000/login'||window.location.href=='http://localhost:3000/signup'){
+  
+          }
+          else{
+            navigate('/');
+          }
         }
       }
+
     };
 
     checkLoggedIn();
