@@ -29,48 +29,53 @@ export default function Profile(props) {
         <div className='profile2'>
           <div className="projects">
             <h1 style={{textAlign:'center'}}>Projects</h1>
-            <div style={{display:"flex", flexDirection:"row"}}>
-              <div className="list_all_projects">
-                  {props.user.projects===undefined?<div>
-                    No Projects.
-                  </div>:<div className='cards_list'>
-                  {props.user.projects.map((project)=>(
-                    <div className="card" key={project.ID} style={{backgroundColor:"rgb(46,92,132)", color:"rgb(93,172,189)"}}>
-                      <div className="card-body">
-                        <h5 className="card-title">
-                          {project.Name}
-                        </h5>
-                        <p className="card-text">Created by: {project.Owner}</p>
-                        <a href={'/app/view_project/'+project.ID} className="btn btn-primary" style={{color:"rgb(46,92,132)", backgroundColor:"rgb(93,172,189)"}}>Go to project</a>
-                      </div>
-                    </div>
-                  ))}                  
-                    </div>}
+            <div style={{display:'flex', height:'83%', width:'100%', justifyContent:'space-evenly'}}>
+              <div className='cards_list_empty' style={{border:'1px solid', height:'100%', width:'70%', display:'flex', flexWrap:'wrap', flexDirection:'column', overflowX:'scroll' }}>
+                {props.user.projects===undefined||props.user.projects.length===0?<span style={{display:'flex', justifyContent:'center', alignItems:'center', height:'inherit', fontSize:'2rem'}}>No Projects</span>:
+                <>
+{props.user.projects.map((project)=>(
+  <div className="card" key={project.ID} style={{backgroundColor:"rgb(46,92,132)", color:"rgb(93,172,189)"}}>
+    <div className="card-body">
+      <h5 className="card-title">
+        {project.Name}
+      </h5>
+      <p className="card-text">Created by: {project.Owner}</p>
+      <a href={'/app/view_project/'+project.ID} className="btn btn-primary" style={{color:"rgb(46,92,132)", backgroundColor:"rgb(93,172,189)"}}>Go to project</a>
+    </div>
+  </div>
+))}                   
+                </>
+                }
               </div>
               <div className="create_new_project" style={{fontSize:"1.5rem"}} onClick={handleclickgorprojects}>
-                <i className="fa-solid fa-circle-plus fa-2xl" style={{color:'#5dacbd'}}></i>
-                <br />
-                <p>Create New Project</p>
-              </div>
+                    <i className="fa-solid fa-circle-plus fa-2xl" style={{color:'#5dacbd'}}></i>
+                    <br />
+                    <p>Create New Project</p>
+              </div>              
             </div>
           </div>
           <div className="tasks">
-            <h1 style={{textAlign:'center'}}>Tasks Summary</h1>
-            <br />
-            <div className="data">
-              <div className="completed">
-                {props.user.completed_tasks===undefined?<span>Complete Tasks: None</span>:<span>Complete Tasks: {props.user.completed_tasks.length}</span>}
-              </div>
-              <div className="assigned">
-              {props.user.assigned_tasks===undefined?<span>Assigned Tasks: None</span>:<span>Assigned Tasks: {props.user.assigned_tasks.length}</span>}
-              </div>
-              <div className="see_all">
-                <a href="/app/view_projects" className="">See all <i className="fa-solid fa-arrow-right" style={{color:"#5dacbd"}}></i></a>
-              </div>
-            </div>              
+                <h1 style={{textAlign:'center'}}>Tasks Summary</h1>
+                <br />
+                <div className="data">
+                  <div className="completed">
+                    {props.user.completed_tasks===undefined?<span>Complete Tasks: None</span>:<span>Complete Tasks: {props.user.completed_tasks.length}</span>}
+                  </div>
+                  <div className="assigned">
+                  {props.user.assigned_tasks===undefined?<span>Assigned Tasks: None</span>:<span>Assigned Tasks: {props.user.assigned_tasks.length}</span>}
+                  </div>
+                  <div className="see_all">
+                    <a href="/app/view_projects" className="">See all <i className="fa-solid fa-arrow-right" style={{color:"#5dacbd"}}></i></a>
+                  </div>
+                </div>              
           </div>
         </div>
       </div>
     </>
   );
 }
+
+
+
+
+
