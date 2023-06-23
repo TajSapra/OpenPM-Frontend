@@ -8,9 +8,9 @@ export default function Profile(props) {
     navigate('/app/view_projects')
   }
   return (
-    <>
-      <div        className='Display_area'        style={{          backgroundColor: 'rgb(36,82,122)',          color: 'rgb(93,172,189)',          width: '100%',          height: '100%',          overflowY: 'scroll',          scrollbarWidth: 'none',          display: 'flex',          flexDirection: 'column',          flexWrap: 'wrap',          justifyContent: 'center',          alignContent: 'space-evenly',}}>
-        <div className='profile1'>
+
+      <div className='Display_area'style={{backgroundColor: 'rgb(36,82,122)',color: 'rgb(93,172,189)',width: '100%',height: '100%',overflowY: 'scroll',scrollbarWidth: 'none',display: 'flex',flexWrap: 'wrap',justifyContent: 'space-evenly'}}>
+<div className='profile1'>
           <div className="photo">
             <div className='photoborder'>
                     {props.imageSrc ? (
@@ -69,9 +69,8 @@ export default function Profile(props) {
                   </div>
                 </div>              
           </div>
-        </div>
+        </div>                
       </div>
-    </>
   );
 }
 
