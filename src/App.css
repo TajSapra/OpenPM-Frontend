@@ -38,8 +38,14 @@ html::-webkit-scrollbar {
 .lowerhalf{
   margin-top: 5%;
 }
+.rotated{
+  transform: rotate(45deg);
+  transition: 0.4s;
+}
+.non-rotated{
+  transition: 0.4s;
+}
 .compartments{
-  border: 1px solid black;
   width: 32.5%;
   height: 100%;
   display:flex;
@@ -64,7 +70,7 @@ html::-webkit-scrollbar {
 .profile1, .profile2{
   border: 1px solid rgb(93,172,189);
   position: relative;
-  top: 2%;
+  top: 7%;
   border-radius: 25px;
 }
 .profile1{
@@ -171,4 +177,11 @@ a:hover{
   justify-content: center;
   flex-direction: column;
   cursor: pointer;
+}
+.list_all, .details_of_proj{
+  height: 100%;
+  border: 1px solid;
+}
+.list_all div{
+  border: 1px solid;
 }

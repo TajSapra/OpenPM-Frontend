@@ -68,21 +68,24 @@ function App() {
 
 
   return (
-    <>
-      <Header title="OpenPM" user={user} setuser={SetUser}/>
-      <div id='main_content' style={{height:'86.5vh', overflow: 'scroll'}}>
-        <Routes>
-          <Route path="/" element={<Home user={user} setuser={SetUser}/>}></Route>
-          <Route path='/about' element={<About user={user} setuser={SetUser}/>}></Route>
-          <Route path="/login" element={<Login user={user} setuser={SetUser} path="/login"/>}></Route>
-          <Route path="/signup" element={<Signup user={user} setuser={SetUser} path="/signup"/>}></Route>
-          <Route path='/app/profile' element={<Profile user={user} setuser={SetUser} imageSrc={imageSrc}/>}></Route>
-          <Route path='/app/view_projects' element={<View_Projects />}></Route>
-          <Route path='/app/view_project/:id' element={<ViewOneProject />}></Route>
-        </Routes>
+      <div style={{height:'99.5vh', display:'flex', width:'100vw', flexDirection:'column'}}>
+        <Header title="OpenPM" user={user} setuser={SetUser}/>
+        <div id='main_content' style={{height:'86.5%'}}>
+          <Routes>
+            <Route path="/" element={<Home user={user} setuser={SetUser}/>}></Route>
+            <Route path='/about' element={<About user={user} setuser={SetUser}/>}></Route>
+            <Route path="/login" element={<Login user={user} setuser={SetUser} path="/login"/>}></Route>
+            <Route path="/signup" element={<Signup user={user} setuser={SetUser} path="/signup"/>}></Route>
+            <Route path='/app/profile' element={<Profile user={user} setuser={SetUser} imageSrc={imageSrc}/>}></Route>
+            <Route path='/app/view_projects' element={<View_Projects user={user}/>}></Route>
+            <Route path='/app/view_project/:id' element={<ViewOneProject />}></Route>
+          </Routes>
+        </div>
       </div>
-    </>
   );
 }
 
 export default App;
+
+
+{/*  */}
