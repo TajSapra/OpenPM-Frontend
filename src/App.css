@@ -185,3 +185,17 @@ a:hover{
 .list_all div{
   border: 1px solid;
 }
+.Card div{
+  height: 100%;
+  border: none;
+}
+.card_details{
+  width: 85%;
+}
+.view_project{
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+}
