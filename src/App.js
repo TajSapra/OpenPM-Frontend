@@ -77,7 +77,7 @@ function App() {
             <Route path="/login" element={<Login user={user} setuser={SetUser} path="/login"/>}></Route>
             <Route path="/signup" element={<Signup user={user} setuser={SetUser} path="/signup"/>}></Route>
             <Route path='/app/profile' element={<Profile user={user} setuser={SetUser} imageSrc={imageSrc}/>}></Route>
-            <Route path='/app/view_projects' element={<View_Projects user={user}/>}></Route>
+            <Route path='/app/view_projects' element={<View_Projects user={user} setuser={SetUser}/>}></Route>
             <Route path='/app/view_project/:id' element={<ViewOneProject />}></Route>
           </Routes>
         </div>
